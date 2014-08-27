@@ -1,2 +1,2 @@
 #!/bin/bash
-git checkout master -- manual.pdf net1-figure1.png
+git checkout doc -- manual.pdf net1-figure1.png
