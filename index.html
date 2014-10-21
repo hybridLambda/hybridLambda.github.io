@@ -55,18 +55,26 @@
 <p>To install hybrid-Lambda, first install the following packages and libraries</p>
 
 <p>on Debian/Ubuntu based systems:</p>
-
+<div class="highlight highlight-bash"><pre>apt-get install libboost-all-dev graphviz
+<!--
 <div class="highlight highlight-bash"><pre>apt-get install git-core build-essential autoconf autoconf-archive libcppunit-dev libboost-all-dev graphviz
+-->
 </pre></div>
 
 <p>on Mac OS:</p>
-
+<div class="highlight highlight-bash"><pre>port install boost graphviz
+<!--
 <div class="highlight highlight-bash"><pre>port install git automake autoconf autoconf-archive cppunit boost graphviz
+-->
 </pre></div>
 
 <p>then type the following commands:</p>
 
-<div class="highlight highlight-bash"><pre>./bootstrap
+<div class="highlight highlight-bash"><pre>
+<!--
+    ./bootstrap
+-->
+cd src/
 make
 </pre></div>
 
@@ -109,16 +117,24 @@ $ git checkout gh-pages
         </section>
 
         <aside id="sidebar">
+<!--
           <a href="https://github.com/shajoezhu/hybrid-Lambda/zipball/master" class="button">
             <small>Download</small>
             .zip file
           </a>
+-->
+<!--
           <a href="https://github.com/shajoezhu/hybrid-Lambda/tarball/master" class="button">
             <small>Download</small>
             .tar.gz file
           </a>
+-->
+          <a href="release/hybrid-lambda-beta-0.3.tar.gz" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
 
-          <p class="repo-owner"><a href="https://github.com/shajoezhu/hybrid-Lambda"></a> is maintained by <a href="https://github.com/shajoezhu">shajoezhu</a>.</p>
+          <p class="repo-owner"><a href="https://github.com/shajoezhu/hybrid-Lambda"></a> is maintained by <a href="https://github.com/shajoezhu">Joe Zhu</a>.</p>
 <a href="http://www.well.ox.ac.uk/dr-sha-joe-zhu" target="_blank"><img
 src="images/sjz_blue.png" width="32" /><i class="twitter-icon"></i></a>
 <a href="https://twitter.com/shajoezhu" target="_blank"><img
