@@ -24,8 +24,8 @@ test:
     - chmod a+x hybrid-Lambda; tests/checkbinary.sh
     - wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-lambda-${VERSION}.zip -o /dev/null
     - unzip hybrid-lambda-${VERSION}.zip -d zipfolder
-    - cd zipfolder/hybrid-lambda-${VERSION}; cd src; make; ../../../tests/checkbinary.sh; cd
+    - cd zipfolder/hybrid-lambda-${VERSION}; cd src; make; ln -s ../trees; ../../../tests/checkbinary.sh
     - wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-lambda-${VERSION}.tar.gz -o /dev/null
     - mkdir tarfolder; tar -xzf hybrid-lambda-${VERSION}.tar.gz -C tarfolder
-    - cd tarfolder/hybrid-lambda-${VERSION}; cd src; make; ../../../tests/checkbinary.sh; cd
+    - cd tarfolder/hybrid-lambda-${VERSION}; cd src; make; ln -s ../trees;  ../../../tests/checkbinary.sh
 

@@ -1,0 +1,3 @@
+[submodule ".hybrid-Lambda"]
+	path = .hybrid-Lambda
+	url = https://github.com/hybridLambda/hybrid-Lambda
