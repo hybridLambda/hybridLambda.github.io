@@ -1,0 +1,18 @@
+language: ruby
+rvm:
+  - 2.1.0
+script: "bundle exec jekyll build"
+before_install:
+ - sudo apt-get update -qq; sudo apt-get install -qq valgrind
+ - export VERSION=v0.6-beta
+script:
+ - myroot=$PWD
+ - wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda -o /dev/null
+ - chmod a+x hybrid-Lambda; tests/checkbinary.sh
+ - wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-lambda-${VERSION}.zip -o /dev/null
+ - unzip hybrid-lambda-${VERSION}.zip -d zipfolder
+ - cd zipfolder/hybrid-lambda-${VERSION}; cd src; make; ln -s ../trees; ../../../tests/checkbinary.sh
+ - cd ${myroot}
+ - wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-lambda-${VERSION}.tar.gz -o /dev/null
+ - mkdir tarfolder; tar -xzf hybrid-lambda-${VERSION}.tar.gz -C tarfolder
+ - cd tarfolder/hybrid-lambda-${VERSION}; cd src; make; ln -s ../trees;  ../../../tests/checkbinary.sh
