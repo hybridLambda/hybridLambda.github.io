@@ -20,8 +20,8 @@ dependencies:
     #g++ 4.6.3-1ubuntu5
 test:    
   override:
-    - wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda -o /dev/null
-    - chmod a+x hybrid-Lambda; tests/checkbinary.sh
+    - wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-ubuntu.tar.gz -o /dev/null
+    - mkdir ubuntuTar; tar -xzf hybrid-Lambda-ubuntu.tar.gz -C ubuntuTar; cd ubuntuTar; ln -s ../trees; ../tests/checkbinary.sh
     - wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-lambda-${VERSION}.zip -o /dev/null
     - unzip hybrid-lambda-${VERSION}.zip -d zipfolder
     - cd zipfolder/hybrid-lambda-${VERSION}; cd src; make; ln -s ../trees; ../../../tests/checkbinary.sh
