@@ -9,7 +9,7 @@ script:
  - myroot=$PWD
  - wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-ubuntu.tar.gz -o /dev/null
  - mkdir ubuntuTar; tar -xzf hybrid-Lambda-ubuntu.tar.gz -C ubuntuTar
- - cd ubuntuTar; make; ln -s${myroot}/trees;  ../tests/checkbinary.sh
+ - cd ubuntuTar; make; ln -s ${myroot}/trees;  ../tests/checkbinary.sh
  - cd ${myroot}
  - wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-lambda-${VERSION}.zip -o /dev/null
  - unzip hybrid-lambda-${VERSION}.zip -d zipfolder
