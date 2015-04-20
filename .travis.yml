@@ -13,6 +13,8 @@ script:
  - myroot=$PWD
  - if [ $TRAVIS_OS_NAME == linux ]; then wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-gcc4.4.zip -o /dev/null; unzip hybrid-Lambda-gcc4.4.zip -d gcc4.4; cd gcc4.4; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
  - cd ${myroot}
+ - if [ $TRAVIS_OS_NAME == linux ]; then wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-gcc4.6.zip -o /dev/null; unzip hybrid-Lambda-gcc4.6.zip -d gcc4.6; cd gcc4.6; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
+ - cd ${myroot}
  - if [ $TRAVIS_OS_NAME == linux ]; then wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-gcc4.8.zip -o /dev/null; unzip hybrid-Lambda-gcc4.8.zip -d gcc4.8; cd gcc4.8; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
  - if [ $TRAVIS_OS_NAME == osx ]; then wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-OSX10.9.zip -o /dev/null; unzip hybrid-Lambda-OSX10.9.zip -d OSX10.9; cd OSX10.9; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
  - cd ${myroot}
