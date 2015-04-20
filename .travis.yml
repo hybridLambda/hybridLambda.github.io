@@ -1,15 +1,20 @@
 language: ruby
+os:
+  - linux
+  - osx
 rvm:
   - 2.1.0
 script: "bundle exec jekyll build"
 before_install:
- - sudo apt-get update -qq; sudo apt-get install -qq valgrind
+ - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update -qq; sudo apt-get install -qq valgrind; fi
+ - if [ $TRAVIS_OS_NAME == osx ]; then brew update && brew install llvm cppunit graphviz valgrind && brew link --force llvm; fi
  - export VERSION=v0.6-beta
 script:
  - myroot=$PWD
- - wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-ubuntu.tar.gz -o /dev/null
- - mkdir ubuntuTar; tar -xzf hybrid-Lambda-ubuntu.tar.gz -C ubuntuTar
- - cd ubuntuTar; make; ln -s ${myroot}/trees;  ../tests/checkbinary.sh
+ - if [ $TRAVIS_OS_NAME == linux ]; then wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-gcc4.4.zip -o /dev/null; unzip hybrid-Lambda-gcc4.4.zip -d gcc4.4; cd gcc4.4; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
+ - cd ${myroot}
+ - if [ $TRAVIS_OS_NAME == linux ]; then wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-gcc4.8.zip -o /dev/null; unzip hybrid-Lambda-gcc4.8.zip -d gcc4.8; cd gcc4.8; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
+ - if [ $TRAVIS_OS_NAME == osx ]; then wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-OSX10.9.zip -o /dev/null; unzip hybrid-Lambda-OSX10.9.zip -d OSX10.9; cd OSX10.9; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
  - cd ${myroot}
  - wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-lambda-${VERSION}.zip -o /dev/null
  - unzip hybrid-lambda-${VERSION}.zip -d zipfolder
