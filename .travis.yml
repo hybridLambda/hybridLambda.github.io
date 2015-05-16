@@ -11,15 +11,11 @@ before_install:
  - export VERSION=v0.6-beta
 script:
  - myroot=$PWD
- - if [ $TRAVIS_OS_NAME == linux ]; then foo(){ wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-${GPP}.zip -o /dev/null; unzip hybrid-Lambda-${GPP}.zip -d ${GPP}; cd ${GPP}; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; } ; fi
- - if [ $TRAVIS_OS_NAME == linux ]; GPP=g++-4.6; then foo(); fi
- - cd ${myroot}; 
- - if [ $TRAVIS_OS_NAME == linux ]; GPP=g++-4.7; then foo(); fi
+ - if [ $TRAVIS_OS_NAME == linux ]; GPP=g++-4.6; then wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-${GPP}.zip -o /dev/null; unzip hybrid-Lambda-${GPP}.zip -d ${GPP}; cd ${GPP}; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
  - cd ${myroot}
- - if [ $TRAVIS_OS_NAME == linux ]; GPP=g++-4.8; then foo(); fi
+ - if [ $TRAVIS_OS_NAME == linux ]; GPP=g++-4.7; then wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-${GPP}.zip -o /dev/null; unzip hybrid-Lambda-${GPP}.zip -d ${GPP}; cd ${GPP}; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
  - cd ${myroot}
- - if [ $TRAVIS_OS_NAME == linux ]; GPP=g++-4.9; then foo(); fi
-
+ - if [ $TRAVIS_OS_NAME == linux ]; GPP=g++-4.8; then wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-${GPP}.zip -o /dev/null; unzip hybrid-Lambda-${GPP}.zip -d ${GPP}; cd ${GPP}; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
  - if [ $TRAVIS_OS_NAME == osx ]; then wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-OSX10.9.zip -o /dev/null; unzip hybrid-Lambda-OSX10.9.zip -d OSX10.9; cd OSX10.9; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
  - cd ${myroot}
  - wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-lambda-${VERSION}.zip -o /dev/null
