@@ -8,14 +8,14 @@ script: "bundle exec jekyll build"
 before_install:
  - if [ $TRAVIS_OS_NAME == linux ]; then sudo apt-get update -qq; sudo apt-get install -qq valgrind; fi
  - if [ $TRAVIS_OS_NAME == osx ]; then brew update && brew install llvm cppunit graphviz valgrind && brew link --force llvm; fi
- - export VERSION=v0.6-beta
+ - export VERSION=v0.6.1-beta
 script:
  - myroot=$PWD
- - if [ $TRAVIS_OS_NAME == linux ]; GPP=g++-4.6; then wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-${GPP}.zip -o /dev/null; unzip hybrid-Lambda-${GPP}.zip -d ${GPP}; cd ${GPP}; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
+ - if [ $TRAVIS_OS_NAME == linux ]; then GPP=g++-4.6;  wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-${GPP}.zip -o /dev/null; unzip hybrid-Lambda-${GPP}.zip -d ${GPP}; cd ${GPP}; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
  - cd ${myroot}
- - if [ $TRAVIS_OS_NAME == linux ]; GPP=g++-4.7; then wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-${GPP}.zip -o /dev/null; unzip hybrid-Lambda-${GPP}.zip -d ${GPP}; cd ${GPP}; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
+ - if [ $TRAVIS_OS_NAME == linux ]; then GPP=g++-4.7; wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-${GPP}.zip -o /dev/null; unzip hybrid-Lambda-${GPP}.zip -d ${GPP}; cd ${GPP}; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
  - cd ${myroot}
- - if [ $TRAVIS_OS_NAME == linux ]; GPP=g++-4.8; then wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-${GPP}.zip -o /dev/null; unzip hybrid-Lambda-${GPP}.zip -d ${GPP}; cd ${GPP}; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
+ - if [ $TRAVIS_OS_NAME == linux ]; then GPP=g++-4.8; wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-${GPP}.zip -o /dev/null; unzip hybrid-Lambda-${GPP}.zip -d ${GPP}; cd ${GPP}; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
  - if [ $TRAVIS_OS_NAME == osx ]; then wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-OSX10.9.zip -o /dev/null; unzip hybrid-Lambda-OSX10.9.zip -d OSX10.9; cd OSX10.9; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
  - cd ${myroot}
  - wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-lambda-${VERSION}.zip -o /dev/null
