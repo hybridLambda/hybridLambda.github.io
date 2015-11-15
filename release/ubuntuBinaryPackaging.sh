@@ -27,7 +27,7 @@ cd packagingDir/hybrid-lambda-${VERSION}/src
 echo "
 COMPILER = ${GPP}
 VERSION = \$(shell cat ../version)
-FLAGS = -O3 -g -std=c++0x -DNDEBUG -DVERSION=\"\${VERSION}\" -I../src/ -static
+FLAGS = -O3 -g -std=c++0x -DNDEBUG -DVERSION=\\\"\${VERSION}\\\" -I../src/ -static
 
 .PHONY: all
 all: clean_all checkfile hybrid-Lambda
@@ -63,4 +63,4 @@ clean_all:
 make
 #mv hybrid-Lambda_static hybrid-Lambda
 zip hybrid-Lambda-${GPP}.zip hybrid-Lambda
-mv hybrid-Lambda-${GPP}.zip ../..
+mv hybrid-Lambda-${GPP}.zip ../../..
