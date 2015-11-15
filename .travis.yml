@@ -11,7 +11,7 @@ before_install:
  - export VERSION=v0.6.1-beta
 script:
  - myroot=$PWD
- - if [ $TRAVIS_OS_NAME == linux ]; then GPP=g++-4.6;  wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-${GPP}.zip -o /dev/null; unzip hybrid-Lambda-${GPP}.zip -d ${GPP}; cd ${GPP}; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
+ - if [ $TRAVIS_OS_NAME == linux ]; then GPP=g++-4.9;  wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-${GPP}.zip -o /dev/null; unzip hybrid-Lambda-${GPP}.zip -d ${GPP}; cd ${GPP}; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
  - cd ${myroot}
  - if [ $TRAVIS_OS_NAME == linux ]; then GPP=g++-4.7; wget --no-check-certificate http://hybridlambda.github.io/release/hybrid-Lambda-${GPP}.zip -o /dev/null; unzip hybrid-Lambda-${GPP}.zip -d ${GPP}; cd ${GPP}; ln -s ${myroot}/trees;  ../tests/checkbinary.sh; fi
  - cd ${myroot}
